@@ -1,3 +1,5 @@
 {
-  "itemGroup.create_endergetic": "Create: Endergetic"
+  "itemGroup.create_endergetic": "Create: Endergetic",
+  "item.create_endergetic.endergetic_alloy": "Liga Endergetica",
+  "item.create_endergetic.endergetic_precision_mechanism": "Mecanismo de Precisão Endergetico"
 }
