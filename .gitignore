@@ -8,3 +8,5 @@ runs/
 *.iml
 .settings/
 .vscode/
+bin/
+.eclipse/

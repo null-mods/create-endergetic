@@ -1,0 +1,8 @@
+{
+  "itemGroup.create_endergy": "Create: Endergy",
+  "item.create_endergy.endergetic_alloy": "Endergetic Alloy",
+  "item.create_endergy.insulated_endergetic_alloy": "Insulated Endergetic Alloy",
+  "item.create_endergy.endergetic_precision_mechanism": "Endergetic Precision Mechanism",
+  "item.create_endergy.insulated_wrench": "Insulated Wrench",
+  "block.create_endergy.endergetic_casing": "Endergetic Casing"
+}

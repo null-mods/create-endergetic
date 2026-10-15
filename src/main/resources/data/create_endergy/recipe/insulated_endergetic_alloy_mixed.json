@@ -1,0 +1,17 @@
+{
+    "type": "create:mixing",
+    "ingredients": [
+        {
+            "item": "create_endergy:endergetic_alloy"
+        },
+        {
+            "item": "minecraft:dried_kelp"
+        }
+    ],
+    "results": [
+        {
+            "id": "create_endergy:insulated_endergetic_alloy",
+            "count": 1
+        }
+    ]
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "create:item/wrench/item",
+  "textures": {
+    "5": "create_endergy:item/insulated_wrench",
+    "particle": "create_endergy:item/insulated_wrench"
+  }
+}
