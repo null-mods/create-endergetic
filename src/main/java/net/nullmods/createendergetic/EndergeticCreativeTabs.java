@@ -8,8 +8,8 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class EndergeticCreativeTabs {
-    private static final DeferredRegister<CreativeModeTab> TABS =
-            DeferredRegister.create(Registries.CREATIVE_MODE_TAB, CreateEndergetic.MOD_ID);
+    private static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB,
+            CreateEndergetic.MOD_ID);
 
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> MAIN = TABS.register("main",
             () -> CreativeModeTab.builder()
@@ -18,6 +18,9 @@ public class EndergeticCreativeTabs {
                     .displayItems((params, output) -> {
                         output.accept(EndergeticItems.ENDERGETIC_ALLOY);
                         output.accept(EndergeticItems.ENDERGETIC_PRECISION_MECHANISM);
+                        output.accept(EndergeticItems.INSULATED_WRENCH);
+                        output.accept(EndergeticItems.INSULATED_ENDERGETIC_ALLOY);
+                        output.accept(EndergeticBlocks.ENDERGETIC_CASING);
                     })
                     .build());
 

@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.nullmods.createendergetic.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "AbstractBogeyBlockMixin",
+    "DeployerMovingInteractionMixin",
+    "ItemProviderEntryMixin"
+  ],
+  "client": [
+    "RadialWrenchHandlerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

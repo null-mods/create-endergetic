@@ -58,7 +58,34 @@ neoForge {
     }
 }
 
-sourceSets.main.resources { srcDir 'src/generated/resources' }
+// The insulated wrench texture is Create's wrench texture with src/main/overlays/insulated_wrench.png drawn on
+// top. The overlay lives outside resources so it is not shipped as a texture of its own.
+def insulatedWrenchTexture = tasks.register('insulatedWrenchTexture') {
+    def overlay = file('src/main/overlays/insulated_wrench.png')
+    def outputRoot = layout.buildDirectory.dir('generated/textures')
+    inputs.file overlay
+    inputs.property 'create_version', create_version
+    outputs.dir outputRoot
+    doLast {
+        def createJar = configurations.compileClasspath.find { it.name.startsWith("create-${minecraft_version}-") }
+        def base = new java.util.zip.ZipFile(createJar).withCloseable { zip ->
+            zip.getInputStream(zip.getEntry('assets/create/textures/item/wrench.png')).withCloseable { javax.imageio.ImageIO.read(it) }
+        }
+        def image = new java.awt.image.BufferedImage(base.width, base.height, java.awt.image.BufferedImage.TYPE_INT_ARGB)
+        def graphics = image.createGraphics()
+        graphics.drawImage(base, 0, 0, null)
+        graphics.drawImage(javax.imageio.ImageIO.read(overlay), 0, 0, null)
+        graphics.dispose()
+        def target = outputRoot.get().file('assets/create_endergetic/textures/item/insulated_wrench.png').asFile
+        target.parentFile.mkdirs()
+        javax.imageio.ImageIO.write(image, 'png', target)
+    }
+}
+
+sourceSets.main.resources {
+    srcDir 'src/generated/resources'
+    srcDir files(layout.buildDirectory.dir('generated/textures')).builtBy(insulatedWrenchTexture)
+}
 
 tasks.named('processResources', ProcessResources).configure {
     def replaceProperties = [

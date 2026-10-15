@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "create_endergetic:block/endergetic_casing"
+    }
+  }
+}
