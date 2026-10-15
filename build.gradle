@@ -76,7 +76,7 @@ def insulatedWrenchTexture = tasks.register('insulatedWrenchTexture') {
         graphics.drawImage(base, 0, 0, null)
         graphics.drawImage(javax.imageio.ImageIO.read(overlay), 0, 0, null)
         graphics.dispose()
-        def target = outputRoot.get().file('assets/create_endergetic/textures/item/insulated_wrench.png').asFile
+        def target = outputRoot.get().file('assets/create_endergy/textures/item/insulated_wrench.png').asFile
         target.parentFile.mkdirs()
         javax.imageio.ImageIO.write(image, 'png', target)
     }
