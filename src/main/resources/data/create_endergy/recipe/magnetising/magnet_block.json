@@ -1,0 +1,13 @@
+{
+    "type": "create_endergy:magnetising",
+    "ingredients": [
+        {
+            "item": "minecraft:iron_block"
+        }
+    ],
+    "results": [
+        {
+            "id": "create_endergy:magnet_block"
+        }
+    ]
+}

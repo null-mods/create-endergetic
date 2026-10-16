@@ -4,5 +4,14 @@
   "item.create_endergy.insulated_endergetic_alloy": "Liga Endergetica Isolada",
   "item.create_endergy.endergetic_precision_mechanism": "Mecanismo de Precisão Endergetico",
   "item.create_endergy.insulated_wrench": "Chave Inglesa Isolada",
-  "block.create_endergy.endergetic_casing": "Carcaça Endergética"
+  "item.create_endergy.magnet": "Ímã",
+  "block.create_endergy.endergetic_casing": "Carcaça Endergética",
+  "block.create_endergy.magnetiser": "Magnetizador",
+  "block.create_endergy.magnetiser.tooltip.summary": "Carrega com _força rotacional_ e atinge o item abaixo com um raio de _endergia_.",
+  "block.create_endergy.magnetiser.tooltip.condition1": "Quando ligado",
+  "block.create_endergy.magnetiser.tooltip.behaviour1": "Os anéis _giram_ com o eixo. Funciona em _esteiras_, _depots_, _bacias_ e itens no _chão_.",
+  "block.create_endergy.magnet_block": "Bloco de Ímã",
+  "block.create_endergy.endergetic_alloy_block": "Bloco de Liga Endergética",
+  "create_endergy.recipe.magnetising": "Magnetização",
+  "enchantment.create_endergy.magnetised": "Magnetizado"
 }

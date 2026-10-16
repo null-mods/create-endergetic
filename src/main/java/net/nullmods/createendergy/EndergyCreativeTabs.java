@@ -21,6 +21,10 @@ public class EndergyCreativeTabs {
                         output.accept(EndergyItems.INSULATED_WRENCH);
                         output.accept(EndergyItems.INSULATED_ENDERGETIC_ALLOY);
                         output.accept(EndergyBlocks.ENDERGETIC_CASING);
+                        output.accept(EndergyBlocks.MAGNETISER);
+                        output.accept(EndergyItems.MAGNET);
+                        output.accept(EndergyBlocks.MAGNET_BLOCK);
+                        output.accept(EndergyBlocks.ENDERGETIC_ALLOY_BLOCK);
                     })
                     .build());
 

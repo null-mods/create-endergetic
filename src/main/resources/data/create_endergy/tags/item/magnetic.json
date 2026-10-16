@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "create_endergy:magnet",
+    "create_endergy:magnet_block"
+  ]
+}

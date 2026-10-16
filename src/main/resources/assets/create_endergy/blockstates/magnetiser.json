@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "axis=x": { "model": "create_endergy:block/magnetiser" },
+    "axis=z": { "model": "create_endergy:block/magnetiser", "y": 90 }
+  }
+}

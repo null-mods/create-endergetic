@@ -1,0 +1,13 @@
+{
+  "type": "create_endergy:magnetising",
+  "ingredients": [
+    {
+      "tag": "c:ingots/iron"
+    }
+  ],
+  "results": [
+    {
+      "id": "create_endergy:magnet"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+    "type": "create:pressing",
+    "ingredients": [
+        {
+            "item": "create_endergy:magnet",
+            "count": 4
+        }
+    ],
+    "results": [
+        {
+            "id": "create_endergy:magnet_block"
+        }
+    ]
+}
