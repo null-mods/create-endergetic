@@ -1,5 +1,9 @@
 package net.nullmods.createendergy;
 
+import com.simibubi.create.AllPartialModels;
+import com.simibubi.create.content.kinetics.base.OrientedRotatingVisual;
+import com.simibubi.create.content.kinetics.motor.CreativeMotorBlockEntity;
+import com.simibubi.create.content.kinetics.motor.CreativeMotorRenderer;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
 import net.nullmods.createendergy.content.magnetiser.MagnetiserBlockEntity;
@@ -12,6 +16,13 @@ public class EndergyBlockEntityTypes {
             .blockEntity("magnetiser", MagnetiserBlockEntity::new)
             .validBlocks(EndergyBlocks.MAGNETISER)
             .renderer(() -> MagnetiserRenderer::new)
+            .register();
+
+    public static final BlockEntityEntry<CreativeMotorBlockEntity> MOTOR = REGISTRATE
+            .blockEntity("motor", CreativeMotorBlockEntity::new)
+            .visual(() -> OrientedRotatingVisual.of(AllPartialModels.SHAFT_HALF), false)
+            .validBlocks(EndergyBlocks.COPPER_MOTOR, EndergyBlocks.ENDERGETIC_MOTOR)
+            .renderer(() -> CreativeMotorRenderer::new)
             .register();
 
     public static void register() {

@@ -20,5 +20,7 @@
   "create_endergy.magnet_block.polarity": "Polaridade: %s",
   "create_endergy.magnet_block.polarity.dipole": "Positivo e negativo",
   "create_endergy.magnet_block.polarity.positive": "Só positivo",
-  "create_endergy.magnet_block.polarity.negative": "Só negativo"
+  "create_endergy.magnet_block.polarity.negative": "Só negativo",
+  "block.create_endergy.copper_motor": "Motor de Cobre",
+  "block.create_endergy.endergetic_motor": "Motor Endérgico"
 }

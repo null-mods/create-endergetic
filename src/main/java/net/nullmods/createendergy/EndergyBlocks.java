@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.MapColor;
 import net.nullmods.createendergy.content.magnet.MagnetBlock;
+import net.nullmods.createendergy.content.motor.EndergyMotorBlock;
 import net.nullmods.createendergy.content.magnetiser.MagnetiserBlock;
 
 public class EndergyBlocks {
@@ -40,6 +41,24 @@ public class EndergyBlocks {
                         .block("endergetic_alloy_block", Block::new)
                         .initialProperties(() -> Blocks.IRON_BLOCK)
                         .properties(p -> p.mapColor(MapColor.COLOR_CYAN))
+                        .simpleItem()
+                        .register();
+
+        public static final BlockEntry<EndergyMotorBlock> COPPER_MOTOR = REGISTRATE
+                        .block("copper_motor", EndergyMotorBlock::new)
+                        .initialProperties(SharedProperties::stone)
+                        .properties(p -> p.mapColor(MapColor.COLOR_CYAN).forceSolidOn())
+                        .onRegister(block -> BlockStressValues.CAPACITIES.register(block, () -> 16384.0))
+                        .onRegister(BlockStressValues.setGeneratorSpeed(256, true))
+                        .simpleItem()
+                        .register();
+
+        public static final BlockEntry<EndergyMotorBlock> ENDERGETIC_MOTOR = REGISTRATE
+                        .block("endergetic_motor", EndergyMotorBlock::new)
+                        .initialProperties(SharedProperties::stone)
+                        .properties(p -> p.mapColor(MapColor.COLOR_CYAN).forceSolidOn())
+                        .onRegister(block -> BlockStressValues.CAPACITIES.register(block, () -> 16384.0))
+                        .onRegister(BlockStressValues.setGeneratorSpeed(256, true))
                         .simpleItem()
                         .register();
 
