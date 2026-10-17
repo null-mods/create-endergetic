@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "PPP",
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "tag": "c:plates/copper"
+    }
+  },
+  "result": {
+    "id": "create_endergy:copper_coil",
+    "count": 1
+  }
+}

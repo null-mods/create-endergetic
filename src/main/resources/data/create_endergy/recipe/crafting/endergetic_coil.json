@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "PPP",
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "tag": "c:plates/endergetic_alloy"
+    }
+  },
+  "result": {
+    "id": "create_endergy:endergetic_coil",
+    "count": 1
+  }
+}

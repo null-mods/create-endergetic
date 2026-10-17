@@ -1,0 +1,13 @@
+{
+  "type": "create:pressing",
+  "ingredients": [
+    {
+      "item": "create_endergy:endergetic_alloy"
+    }
+  ],
+  "results": [
+    {
+      "id": "create_endergy:endergetic_plate"
+    }
+  ]
+}

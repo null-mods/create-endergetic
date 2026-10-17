@@ -26,6 +26,26 @@ public class EndergyItems {
                         .properties(p -> p.stacksTo(64))
                         .register();
 
+        public static final ItemEntry<Item> ENDERGETIC_PLATE = REGISTRATE
+                        .item("endergetic_plate", Item::new)
+                        .properties(p -> p.stacksTo(64))
+                        .register();
+
+        public static final ItemEntry<Item> COPPER_COIL = REGISTRATE
+                        .item("copper_coil", Item::new)
+                        .properties(p -> p.stacksTo(64))
+                        .register();
+
+        public static final ItemEntry<Item> GOLD_COIL = REGISTRATE
+                        .item("gold_coil", Item::new)
+                        .properties(p -> p.stacksTo(64))
+                        .register();
+
+        public static final ItemEntry<Item> ENDERGETIC_COIL = REGISTRATE
+                        .item("endergetic_coil", Item::new)
+                        .properties(p -> p.stacksTo(64))
+                        .register();
+
         public static void register() {
         }
 }

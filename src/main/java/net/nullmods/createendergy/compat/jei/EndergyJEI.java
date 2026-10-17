@@ -27,10 +27,6 @@ import net.nullmods.createendergy.content.magnetiser.MagnetisingRecipe;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Found by JEI through the annotation and only loaded when JEI is installed, so the mod still
- * runs without it. EMI shows JEI plugins on its own, so this covers EMI too.
- */
 @JeiPlugin
 public class EndergyJEI implements IModPlugin {
     private static final ResourceLocation ID = CreateEndergy.asResource("jei_plugin");
@@ -58,10 +54,6 @@ public class EndergyJEI implements IModPlugin {
 
     private static final TagKey<Item> MAGNETISABLE = TagKey.create(Registries.ITEM, CreateEndergy.asResource("enchantable/magnetised"));
 
-    /**
-     * The enchanting the magnetiser does in code has no recipe files, so build one display-only
-     * entry per item: the book, then every tool and sword the enchantment accepts.
-     */
     private static List<RecipeHolder<MagnetisingRecipe>> enchantingExamples(RegistryAccess registries) {
         List<RecipeHolder<MagnetisingRecipe>> examples = new ArrayList<>();
         List<Item> inputs = new ArrayList<>(List.of(Items.BOOK));
