@@ -7,6 +7,8 @@
     "create_endergy:endergetic_alloy_block",
     "create_endergy:copper_motor",
     "create_endergy:endergetic_motor",
-    "create_endergy:insulator"
+    "create_endergy:insulator",
+    "create_endergy:accumulator",
+    "create_endergy:creative_accumulator"
   ]
 }

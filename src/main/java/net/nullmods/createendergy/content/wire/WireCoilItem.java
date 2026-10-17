@@ -53,11 +53,12 @@ public class WireCoilItem extends Item {
             return tell(player, "already");
         if (here.isFull() || there.isFull())
             return tell(player, "full");
-        if (here.getAttachPoint().distanceTo(there.getAttachPoint()) > InsulatorBlockEntity.MAX_LENGTH)
+        if (here.getAttachPoint(InsulatorBlock.Neck.INPUT)
+                .distanceTo(there.getAttachPoint(InsulatorBlock.Neck.OUTPUT)) > InsulatorBlockEntity.MAX_LENGTH)
             return tell(player, "too_far");
 
-        here.addLink(start, type);
-        there.addLink(pos, type);
+        here.addLink(start, type, false);
+        there.addLink(pos, type, true);
         if (player == null || !player.getAbilities().instabuild)
             stack.shrink(1);
         level.playSound(null, pos, SoundEvents.LEASH_KNOT_PLACE, SoundSource.BLOCKS, 1, 1);

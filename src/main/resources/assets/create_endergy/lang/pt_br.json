@@ -26,6 +26,8 @@
   "create_endergy.magnet_block.polarity.negative": "Só negativo",
   "block.create_endergy.copper_motor": "Motor de Cobre",
   "block.create_endergy.endergetic_motor": "Motor Endérgico",
+  "block.create_endergy.accumulator": "Acumulador",
+  "block.create_endergy.creative_accumulator": "Acumulador Criativo",
   "block.create_endergy.insulator": "Isolador",
   "create_endergy.wire.start": "Fio preso. Clique com o botão direito em outro isolador para ligar.",
   "create_endergy.wire.connected": "Isoladores ligados.",
@@ -33,5 +35,13 @@
   "create_endergy.wire.lost": "O primeiro isolador não existe mais.",
   "create_endergy.wire.already": "Esses isoladores já estão ligados.",
   "create_endergy.wire.full": "Este isolador não tem mais conexões livres.",
-  "create_endergy.wire.too_far": "Longe demais: o fio alcança até %s blocos."
+  "create_endergy.wire.too_far": "Longe demais: o fio alcança até %s blocos.",
+  "create_endergy.gui.goggles.endergy_stats": "Estatísticas de Endergia:",
+  "create_endergy.gui.goggles.voltage": "Tensão:",
+  "create_endergy.generic.unit.volts": "%s V",
+  "create_endergy.accumulator.voltage": "Tensão",
+  "create_endergy.gui.goggles.stored": "Armazenado:",
+  "create_endergy.gui.goggles.capacity": "Capacidade:",
+  "create_endergy.gui.goggles.infinite": "Infinito",
+  "create_endergy.generic.unit.endergy": "%s EJ"
 }

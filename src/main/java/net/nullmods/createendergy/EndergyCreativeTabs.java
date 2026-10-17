@@ -33,6 +33,8 @@ public class EndergyCreativeTabs {
                         output.accept(EndergyBlocks.COPPER_MOTOR);
                         output.accept(EndergyBlocks.ENDERGETIC_MOTOR);
                         output.accept(EndergyBlocks.INSULATOR);
+                        output.accept(EndergyBlocks.ACCUMULATOR);
+                        output.accept(EndergyBlocks.CREATIVE_ACCUMULATOR);
                         output.accept(EndergyBlocks.ENDERGETIC_ALLOY_BLOCK);
                     })
                     .build());

@@ -38,21 +38,24 @@ public class InsulatorRenderer implements BlockEntityRenderer<InsulatorBlockEnti
             // drawn once
             if (pos.asLong() > link.other().asLong())
                 continue;
-            Vec3 from = be.getAttachPoint().subtract(origin);
-            Vec3 to = InsulatorBlock.attachPoint(link.other(), be.getLevel().getBlockState(link.other()))
-                    .subtract(origin);
+            Vec3 from = be.getAttachPoint(InsulatorBlock.Neck.of(link.outgoing())).subtract(origin);
+            Vec3 to = InsulatorBlock.attachPoint(link.other(), be.getLevel().getBlockState(link.other()),
+                    InsulatorBlock.Neck.of(!link.outgoing())).subtract(origin);
             int lightTo = LevelRenderer.getLightColor(be.getLevel(), link.other());
             drawWire(ms, buffer.getBuffer(RenderType.cutout()), from, to, light, lightTo, link.type());
         }
-        if (!be.getLinks().isEmpty())
-            drawWrap(ms, buffer.getBuffer(RenderType.cutout()), be.getBlockState().getValue(InsulatorBlock.FACING),
-                    be.getLinks().get(0).type(), light);
+        Direction facing = be.getBlockState().getValue(InsulatorBlock.FACING);
+        for (InsulatorBlock.Neck neck : InsulatorBlock.Neck.values())
+            be.getLinks().stream().filter(link -> InsulatorBlock.Neck.of(link.outgoing()) == neck).findFirst()
+                    .ifPresent(link -> drawWrap(ms, buffer.getBuffer(RenderType.cutout()), facing, neck, link.type(),
+                            light));
     }
 
-    private static void drawWrap(PoseStack ms, VertexConsumer vc, Direction facing, WireType type, int light) {
+    private static void drawWrap(PoseStack ms, VertexConsumer vc, Direction facing, InsulatorBlock.Neck neck,
+            WireType type, int light) {
         TextureAtlasSprite sprite = Minecraft.getInstance().getTextureAtlas(InventoryMenu.BLOCK_ATLAS).apply(TEXTURE);
         float r = (InsulatorBlock.NECK_HALF_WIDTH + WRAP_OVERHANG) / 16;
-        float lo = (InsulatorBlock.NECK_BOTTOM + WRAP_INSET) / 16, hi = (InsulatorBlock.NECK_TOP - WRAP_INSET) / 16;
+        float lo = (neck.bottom + WRAP_INSET) / 16, hi = (neck.top - WRAP_INSET) / 16;
         float a = .5f - r, b = .5f + r;
         int color = 0xFF000000 | type.light();
         ms.pushPose();

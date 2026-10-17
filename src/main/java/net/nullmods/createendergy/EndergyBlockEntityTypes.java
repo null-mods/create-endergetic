@@ -6,6 +6,8 @@ import com.simibubi.create.content.kinetics.motor.CreativeMotorBlockEntity;
 import com.simibubi.create.content.kinetics.motor.CreativeMotorRenderer;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
+import net.nullmods.createendergy.content.accumulator.AccumulatorBlockEntity;
+import net.nullmods.createendergy.content.accumulator.CreativeAccumulatorBlockEntity;
 import net.nullmods.createendergy.content.magnetiser.MagnetiserBlockEntity;
 import net.nullmods.createendergy.content.wire.InsulatorBlockEntity;
 import net.nullmods.createendergy.content.wire.InsulatorRenderer;
@@ -31,6 +33,16 @@ public class EndergyBlockEntityTypes {
                         .blockEntity("insulator", InsulatorBlockEntity::new)
                         .validBlocks(EndergyBlocks.INSULATOR)
                         .renderer(() -> InsulatorRenderer::new)
+                        .register();
+
+        public static final BlockEntityEntry<AccumulatorBlockEntity> ACCUMULATOR = REGISTRATE
+                        .blockEntity("accumulator", AccumulatorBlockEntity::new)
+                        .validBlocks(EndergyBlocks.ACCUMULATOR)
+                        .register();
+
+        public static final BlockEntityEntry<CreativeAccumulatorBlockEntity> CREATIVE_ACCUMULATOR = REGISTRATE
+                        .blockEntity("creative_accumulator", CreativeAccumulatorBlockEntity::new)
+                        .validBlocks(EndergyBlocks.CREATIVE_ACCUMULATOR)
                         .register();
 
         public static void register() {

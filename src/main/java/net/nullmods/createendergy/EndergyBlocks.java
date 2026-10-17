@@ -6,9 +6,12 @@ import com.simibubi.create.foundation.data.BuilderTransformers;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.simibubi.create.foundation.data.SharedProperties;
 import com.tterrag.registrate.util.entry.BlockEntry;
+import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.MapColor;
+import net.nullmods.createendergy.content.accumulator.AccumulatorBlock;
+import net.nullmods.createendergy.content.accumulator.AccumulatorModel;
 import net.nullmods.createendergy.content.magnet.MagnetBlock;
 import net.nullmods.createendergy.content.motor.EndergyMotorBlock;
 import net.nullmods.createendergy.content.wire.InsulatorBlock;
@@ -68,6 +71,26 @@ public class EndergyBlocks {
                         .initialProperties(() -> Blocks.LIGHTNING_ROD)
                         .properties(p -> p.noOcclusion())
                         .simpleItem()
+                        .register();
+
+        public static final BlockEntry<AccumulatorBlock> ACCUMULATOR = REGISTRATE
+                        .block("accumulator", AccumulatorBlock::regular)
+                        .initialProperties(SharedProperties::copperMetal)
+                        .properties(p -> p.noOcclusion().mapColor(MapColor.COLOR_CYAN)
+                                        .isRedstoneConductor((state, level, pos) -> true))
+                        .onRegister(CreateRegistrate.blockModel(AccumulatorModel::standard))
+                        .simpleItem()
+                        .register();
+
+        public static final BlockEntry<AccumulatorBlock> CREATIVE_ACCUMULATOR = REGISTRATE
+                        .block("creative_accumulator", AccumulatorBlock::creative)
+                        .initialProperties(SharedProperties::copperMetal)
+                        .properties(p -> p.noOcclusion().mapColor(MapColor.COLOR_PURPLE)
+                                        .isRedstoneConductor((state, level, pos) -> true))
+                        .onRegister(CreateRegistrate.blockModel(AccumulatorModel::creative))
+                        .item()
+                        .properties(p -> p.rarity(Rarity.EPIC))
+                        .build()
                         .register();
 
         public static void register() {

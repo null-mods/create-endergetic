@@ -24,7 +24,24 @@ import java.util.Map;
 public class InsulatorBlock extends RodBlock implements EntityBlock {
     public static final MapCodec<InsulatorBlock> CODEC = simpleCodec(InsulatorBlock::new);
 
-    public static final float NECK_BOTTOM = 2.08f, NECK_TOP = 2.88f, NECK_HALF_WIDTH = 1.28f;
+    public static final float NECK_HALF_WIDTH = 1.28f;
+
+    public enum Neck {
+        INPUT(2.08f, 2.72f),
+        OUTPUT(.8f, 1.28f);
+
+        public final float bottom, top;
+
+        Neck(float bottom, float top) {
+            this.bottom = bottom;
+            this.top = top;
+        }
+
+        public static Neck of(boolean outgoing) {
+            return outgoing ? OUTPUT : INPUT;
+        }
+    }
+
     // Bigger than the 3 px model on purpose, so it can still be aimed at
     private static final Map<Direction, VoxelShape> SHAPES = new EnumMap<>(Direction.class);
     private static final Map<Direction, VoxelShape> COLLISION = new EnumMap<>(Direction.class);
@@ -67,9 +84,9 @@ public class InsulatorBlock extends RodBlock implements EntityBlock {
         return COLLISION.get(state.getValue(FACING));
     }
 
-    public static Vec3 attachPoint(BlockPos pos, BlockState state) {
+    public static Vec3 attachPoint(BlockPos pos, BlockState state, Neck neck) {
         Direction facing = state.hasProperty(FACING) ? state.getValue(FACING) : Direction.UP;
-        double fromCentre = (NECK_BOTTOM + NECK_TOP) / 2 / 16 - .5;
+        double fromCentre = (neck.bottom + neck.top) / 2 / 16 - .5;
         return Vec3.atCenterOf(pos).add(Vec3.atLowerCornerOf(facing.getNormal()).scale(fromCentre));
     }
 

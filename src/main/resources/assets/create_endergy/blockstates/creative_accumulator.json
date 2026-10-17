@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "bottom=false,powered=false,top=false": {
+      "model": "create_endergy:block/creative_accumulator/block_middle"
+    },
+    "bottom=false,powered=false,top=true": {
+      "model": "create_endergy:block/creative_accumulator/block_top"
+    },
+    "bottom=false,powered=true,top=false": {
+      "model": "create_endergy:block/creative_accumulator/block_middle"
+    },
+    "bottom=false,powered=true,top=true": {
+      "model": "create_endergy:block/creative_accumulator/block_top_powered"
+    },
+    "bottom=true,powered=false,top=false": {
+      "model": "create_endergy:block/creative_accumulator/block_bottom"
+    },
+    "bottom=true,powered=false,top=true": {
+      "model": "create_endergy:block/creative_accumulator/block_single"
+    },
+    "bottom=true,powered=true,top=false": {
+      "model": "create_endergy:block/creative_accumulator/block_bottom_powered"
+    },
+    "bottom=true,powered=true,top=true": {
+      "model": "create_endergy:block/creative_accumulator/block_single_powered"
+    }
+  }
+}

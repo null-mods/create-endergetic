@@ -26,6 +26,8 @@
   "create_endergy.magnet_block.polarity.negative": "Negative only",
   "block.create_endergy.copper_motor": "Copper Motor",
   "block.create_endergy.endergetic_motor": "Endergetic Motor",
+  "block.create_endergy.accumulator": "Accumulator",
+  "block.create_endergy.creative_accumulator": "Creative Accumulator",
   "block.create_endergy.insulator": "Insulator",
   "create_endergy.wire.start": "Wire attached. Right-click another insulator to connect.",
   "create_endergy.wire.connected": "Insulators connected.",
@@ -33,5 +35,13 @@
   "create_endergy.wire.lost": "The first insulator is gone.",
   "create_endergy.wire.already": "These insulators are already connected.",
   "create_endergy.wire.full": "This insulator has no free connections.",
-  "create_endergy.wire.too_far": "Too far: wires reach up to %s blocks."
+  "create_endergy.wire.too_far": "Too far: wires reach up to %s blocks.",
+  "create_endergy.gui.goggles.endergy_stats": "Endergy Stats:",
+  "create_endergy.gui.goggles.voltage": "Voltage:",
+  "create_endergy.generic.unit.volts": "%s V",
+  "create_endergy.accumulator.voltage": "Voltage",
+  "create_endergy.gui.goggles.stored": "Stored:",
+  "create_endergy.gui.goggles.capacity": "Capacity:",
+  "create_endergy.gui.goggles.infinite": "Infinite",
+  "create_endergy.generic.unit.endergy": "%s EJ"
 }

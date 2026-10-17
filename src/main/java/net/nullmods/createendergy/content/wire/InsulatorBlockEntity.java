@@ -1,7 +1,9 @@
 package net.nullmods.createendergy.content.wire;
 
+import com.simibubi.create.api.equipment.goggles.IHaveGoggleInformation;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.network.chat.Component;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
@@ -15,15 +17,17 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
+import net.nullmods.createendergy.content.EndergyGoggles;
+import net.nullmods.createendergy.content.accumulator.AccumulatorBlockEntity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class InsulatorBlockEntity extends BlockEntity {
+public class InsulatorBlockEntity extends BlockEntity implements IHaveGoggleInformation {
     public static final int MAX_LINKS = 4;
     public static final double MAX_LENGTH = 16;
 
-    public record Link(BlockPos other, WireType type) {
+    public record Link(BlockPos other, WireType type, boolean outgoing) {
     }
 
     private final List<Link> links = new ArrayList<>();
@@ -44,12 +48,30 @@ public class InsulatorBlockEntity extends BlockEntity {
         return links.size() >= MAX_LINKS;
     }
 
-    public Vec3 getAttachPoint() {
-        return InsulatorBlock.attachPoint(worldPosition, getBlockState());
+    public Vec3 getAttachPoint(InsulatorBlock.Neck neck) {
+        return InsulatorBlock.attachPoint(worldPosition, getBlockState(), neck);
     }
 
-    public void addLink(BlockPos other, WireType type) {
-        links.add(new Link(other, type));
+    public AccumulatorBlockEntity getSource() {
+        BlockState state = getBlockState();
+        if (!state.hasProperty(InsulatorBlock.FACING))
+            return null;
+        BlockPos mount = worldPosition.relative(state.getValue(InsulatorBlock.FACING).getOpposite());
+        if (!(level.getBlockEntity(mount) instanceof AccumulatorBlockEntity part))
+            return null;
+        AccumulatorBlockEntity controller = part.getControllerBE();
+        return controller != null && controller.getVoltage() > 0 ? controller : null;
+    }
+
+    @Override
+    public boolean addToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking) {
+        EndergyGoggles.header(tooltip);
+        EndergyGoggles.voltage(tooltip, EndergyNetwork.voltageAt(level, worldPosition));
+        return true;
+    }
+
+    public void addLink(BlockPos other, WireType type, boolean outgoing) {
+        links.add(new Link(other, type, outgoing));
         changed();
     }
 
@@ -83,6 +105,7 @@ public class InsulatorBlockEntity extends BlockEntity {
             CompoundTag entry = new CompoundTag();
             entry.putLong("Pos", link.other().asLong());
             entry.putString("Type", link.type().getSerializedName());
+            entry.putBoolean("Outgoing", link.outgoing());
             list.add(entry);
         }
         tag.put("Links", list);
@@ -94,7 +117,8 @@ public class InsulatorBlockEntity extends BlockEntity {
         links.clear();
         for (Tag t : tag.getList("Links", Tag.TAG_COMPOUND)) {
             CompoundTag entry = (CompoundTag) t;
-            links.add(new Link(BlockPos.of(entry.getLong("Pos")), WireType.byName(entry.getString("Type"))));
+            links.add(new Link(BlockPos.of(entry.getLong("Pos")), WireType.byName(entry.getString("Type")),
+                    entry.getBoolean("Outgoing")));
         }
     }
 

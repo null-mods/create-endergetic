@@ -1,0 +1,26 @@
+{
+  "type": "create:mechanical_crafting",
+  "accept_mirrored": false,
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "create_endergy:endergetic_casing"
+    },
+    "B": {
+      "item": "create_endergy:endergetic_coil"
+    },
+    "M": {
+      "item": "create_endergy:endergetic_precision_mechanism"
+    }
+  },
+  "pattern": [
+    "CBC",
+    "BMB",
+    "CBC"
+  ],
+  "result": {
+    "count": 1,
+    "id": "create_endergy:accumulator"
+  },
+  "show_notification": true
+}

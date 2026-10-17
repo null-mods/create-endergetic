@@ -1,0 +1,7 @@
+{
+  "parent": "create_endergy:block/accumulator/block_middle",
+  "textures": {
+    "1": "create_endergy:block/creative_accumulator",
+    "particle": "create_endergy:block/creative_accumulator"
+  }
+}

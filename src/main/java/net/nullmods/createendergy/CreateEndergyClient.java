@@ -18,11 +18,11 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 public class CreateEndergyClient {
     public CreateEndergyClient(IEventBus modEventBus) {
         EndergyPartialModels.init();
-        modEventBus.addListener((EntityRenderersEvent.RegisterRenderers event) ->
-                event.registerEntityRenderer(EndergyEntityTypes.MOVING_MAGNET.get(), FallingBlockRenderer::new));
+        modEventBus.addListener((EntityRenderersEvent.RegisterRenderers event) -> event
+                .registerEntityRenderer(EndergyEntityTypes.MOVING_MAGNET.get(), FallingBlockRenderer::new));
         // Values must match the overrides in models/item/magnet_block.json
-        modEventBus.addListener((FMLClientSetupEvent event) -> event.enqueueWork(() ->
-                ItemProperties.register(EndergyBlocks.MAGNET_BLOCK.asItem(), CreateEndergy.asResource("polarity"),
+        modEventBus.addListener((FMLClientSetupEvent event) -> event.enqueueWork(
+                () -> ItemProperties.register(EndergyBlocks.MAGNET_BLOCK.asItem(), CreateEndergy.asResource("polarity"),
                         (stack, level, entity, seed) -> switch (MagnetBlock.polarityOf(stack)) {
                             case DIPOLE -> 0;
                             case POSITIVE -> .5f;
