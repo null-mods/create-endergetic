@@ -32,47 +32,24 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Charges while it turns and there is something to magnetise below it; at full charge the
- * conductors touch, the item is processed and they spring back. Both sides run the same tick
- * so the animation is smooth without a packet per tick, but only the server decides when the
- * discharge happens, so the item is processed once.
- *
- * What it can do to an item: a magnetising recipe, or else {@link MagnetisedEnchanting} (books
- * and tools gain the Magnetised enchantment).
- *
- * Targets, checked in this order, mirroring Create's press, which works across a one-block
- * gap: an item held on a belt or depot two blocks below (one item per discharge), an item in a
- * basin two blocks below (one per discharge), and items lying in the gap (the whole stack).
- * Belts and depots only look for a processing machine two blocks above them, so this spacing
- * is what makes them hold the item under it.
- */
 public class MagnetiserBlockEntity extends KineticBlockEntity {
-    /** At 32 RPM a full charge takes 5 seconds; it scales with speed. */
     private static final float CHARGE_PER_RPM_TICK = 1 / 3200f;
-    /** Charge lost per tick when it has nothing to do, so the conductors relax. */
     private static final float DRAIN_PER_TICK = 0.02f;
     private static final int CONTACT_TICKS = 4;
     private static final int RECOVER_TICKS = 8;
     private static final int SCAN_INTERVAL = 5;
-    /** How far from a belt segment's centre an item still counts as under the machine. */
     private static final float BELT_REACH = .5f;
 
     private static final int NO_TARGET = -1, TARGET_BELT = 0, TARGET_BASIN = 1, TARGET_GROUND = 2;
-    /** Block event sent to clients on discharge; its parameter is which target was struck. */
     static final int EVENT_DISCHARGE = 1;
     private static final int BOLT_TICKS = CONTACT_TICKS;
-    /** Where the bolt leaves the touching conductor tips, relative to this block. */
     static final Vec3 BOLT_START = new Vec3(.5, .1, .5);
 
     private float charge;
     private float prevCharge;
-    /** Ticks left of the contact-and-recover motion after a discharge; 0 while charging. */
     private int afterDischarge;
-    /** Whether there is something below to work on. Decided by the server and synced. */
     private boolean hasTarget;
     private int scanCooldown;
-    /** Client only: ticks left of the visible bolt, and what it is striking. */
     private int boltTicks;
     private int boltTarget = NO_TARGET;
 
@@ -83,7 +60,6 @@ public class MagnetiserBlockEntity extends KineticBlockEntity {
     @Override
     public void addBehaviours(List<BlockEntityBehaviour> behaviours) {
         super.addBehaviours(behaviours);
-        // Belts and depots ask the block above them what to do with an item reaching the centre
         behaviours.add(new BeltProcessingBehaviour(this)
                 .whenItemEnters((stack, handler) -> holdIfMagnetisable(stack))
                 .whileItemHeld((stack, handler) -> holdIfMagnetisable(stack)));
@@ -162,7 +138,6 @@ public class MagnetiserBlockEntity extends KineticBlockEntity {
         return boltTicks;
     }
 
-    /** Where the bolt lands, relative to this block, or null when the discharge hit nothing. */
     public Vec3 getBoltEnd() {
         return switch (boltTarget) {
             case TARGET_BELT -> new Vec3(.5, -2 + .8, .5);   // belt or depot surface
@@ -178,7 +153,7 @@ public class MagnetiserBlockEntity extends KineticBlockEntity {
         return super.createRenderBoundingBox().expandTowards(0, -2, 0);
     }
 
-    /** Looks for something to magnetise; with {@code process} it also magnetises the first one found. */
+    // Create machines work across a one-block gap: belts and depots only look for a processor two blocks above them
     private int scanTargets(boolean process) {
         BlockPos gap = worldPosition.below();
         BlockPos target = worldPosition.below(2);
@@ -204,7 +179,6 @@ public class MagnetiserBlockEntity extends KineticBlockEntity {
             if (!process)
                 return TransportedResult.doNothing();
 
-            // One item per discharge; the rest of the stack stays held for the next one
             List<TransportedItemStack> outputs = new ArrayList<>();
             for (ItemStack result : resultsForOne(transported.stack)) {
                 TransportedItemStack output = transported.getSimilar();
@@ -230,7 +204,6 @@ public class MagnetiserBlockEntity extends KineticBlockEntity {
                 return true;
 
             List<ItemStack> results = resultsForOne(stack);
-            // A full basin keeps its item and waits, like Create's own basin machines
             if (!basin.acceptOutputs(results, List.of(), true))
                 return true;
             basin.acceptOutputs(results, List.of(), false);
@@ -271,7 +244,6 @@ public class MagnetiserBlockEntity extends KineticBlockEntity {
         return findRecipe(stack).isPresent() || !MagnetisedEnchanting.apply(level.registryAccess(), stack).isEmpty();
     }
 
-    /** What one of {@code stack} turns into: its recipe's results, or the enchanted copy. */
     private List<ItemStack> resultsForOne(ItemStack stack) {
         ItemStack one = stack.copyWithCount(1);
         Optional<RecipeHolder<MagnetisingRecipe>> recipe = findRecipe(one);
@@ -288,10 +260,6 @@ public class MagnetiserBlockEntity extends KineticBlockEntity {
                 EndergyRecipeTypes.MAGNETISING.<SingleRecipeInput, MagnetisingRecipe>getType(), new SingleRecipeInput(stack), level);
     }
 
-    /**
-     * How far the conductors have swung toward each other: 0 apart, 1 touching. They speed up
-     * as the charge builds, hold together on contact, then spring back.
-     */
     public float getConductorProgress(float partialTicks) {
         if (afterDischarge > 0) {
             float left = afterDischarge - partialTicks;

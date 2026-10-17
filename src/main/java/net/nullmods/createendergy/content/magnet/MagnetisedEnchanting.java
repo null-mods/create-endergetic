@@ -12,11 +12,7 @@ import net.minecraft.world.item.enchantment.EnchantmentInstance;
 
 import java.util.Optional;
 
-/**
- * What the magnetiser does to items no recipe covers: a plain book becomes a Magnetised book,
- * and a tool or sword gains Magnetised while keeping its damage and other enchantments. Code
- * rather than JSON because the result is the very item that went in.
- */
+// In code because the result is the very item that went in, which a JSON recipe can't express
 public final class MagnetisedEnchanting {
     private MagnetisedEnchanting() {
     }
@@ -25,7 +21,6 @@ public final class MagnetisedEnchanting {
         return registries.registryOrThrow(Registries.ENCHANTMENT).getHolder(MagnetHandler.MAGNETISED);
     }
 
-    /** The result of magnetising one of {@code input}, or empty when this doesn't apply to it. */
     public static ItemStack apply(RegistryAccess registries, ItemStack input) {
         Optional<Holder.Reference<Enchantment>> found = enchantment(registries);
         if (found.isEmpty() || input.isEmpty())

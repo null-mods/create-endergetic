@@ -19,11 +19,6 @@ import net.nullmods.createendergy.CreateEndergy;
 
 import java.util.Optional;
 
-/**
- * Pulls nearby dropped items toward a player holding something magnetic: a tool or sword
- * with the Magnetised enchantment, or anything in the {@code create_endergy:magnetic} tag
- * (the magnet and the magnet block), which attracts without needing the enchantment.
- */
 @EventBusSubscriber(modid = CreateEndergy.MOD_ID)
 public class MagnetHandler {
     public static final ResourceKey<Enchantment> MAGNETISED =
@@ -32,7 +27,7 @@ public class MagnetHandler {
 
     private static final double RANGE = 3;
     private static final double PULL = .35;
-    /** Tag other mods put on item entities that must not be moved remotely, e.g. on conveyors. */
+    // Other mods tag item entities with this to keep magnets off them, e.g. on conveyors
     private static final String PREVENT_REMOTE_MOVEMENT = "PreventRemoteMovement";
 
     @SubscribeEvent

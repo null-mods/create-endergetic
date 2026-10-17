@@ -6,7 +6,6 @@ import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.level.Level;
 import net.nullmods.createendergy.EndergyRecipeTypes;
 
-/** One item in, up to two out (the second usually a chance-based by-product), like Create's pressing. */
 public class MagnetisingRecipe extends StandardProcessingRecipe<SingleRecipeInput> {
     public MagnetisingRecipe(ProcessingRecipeParams params) {
         super(EndergyRecipeTypes.MAGNETISING, params);

@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.MapColor;
 import net.nullmods.createendergy.content.magnet.MagnetBlock;
 import net.nullmods.createendergy.content.motor.EndergyMotorBlock;
+import net.nullmods.createendergy.content.wire.InsulatorBlock;
 import net.nullmods.createendergy.content.magnetiser.MagnetiserBlock;
 
 public class EndergyBlocks {
@@ -59,6 +60,13 @@ public class EndergyBlocks {
                         .properties(p -> p.mapColor(MapColor.COLOR_CYAN).forceSolidOn())
                         .onRegister(block -> BlockStressValues.CAPACITIES.register(block, () -> 16384.0))
                         .onRegister(BlockStressValues.setGeneratorSpeed(256, true))
+                        .simpleItem()
+                        .register();
+
+        public static final BlockEntry<InsulatorBlock> INSULATOR = REGISTRATE
+                        .block("insulator", InsulatorBlock::new)
+                        .initialProperties(() -> Blocks.LIGHTNING_ROD)
+                        .properties(p -> p.noOcclusion())
                         .simpleItem()
                         .register();
 

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "KKK",
+    "CCC",
+    "KKK"
+  ],
+  "key": {
+    "K": {
+      "item": "minecraft:dried_kelp"
+    },
+    "C": {
+      "item": "create_endergy:endergetic_coil"
+    }
+  },
+  "result": {
+    "id": "create_endergy:insulated_endergetic_coil",
+    "count": 3
+  }
+}

@@ -16,15 +16,10 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.nullmods.createendergy.EndergyEntityTypes;
 
-/**
- * A magnet block sliding one block after a push or pull. Drawn like falling sand, but it moves
- * in a straight line in any direction, ignoring gravity, and turns back into a block where it
- * was headed. If something took that spot meanwhile, it drops as an item instead.
- */
 public class MovingMagnetEntity extends FallingBlockEntity {
     private static final int TRAVEL_TICKS = 6;
 
-    /** Server side only; clients get the state through the spawn packet, as falling blocks do. */
+    // Vanilla keeps the falling block's state private, so this copy is sent in the spawn packet instead
     private BlockState magnet;
     private BlockPos target;
     private int travelled;
@@ -33,7 +28,6 @@ public class MovingMagnetEntity extends FallingBlockEntity {
         super(type, level);
     }
 
-    /** Takes the block out of {@code from} and starts it toward {@code to}. */
     public static void launch(Level level, BlockPos from, BlockPos to, BlockState state) {
         MovingMagnetEntity entity = new MovingMagnetEntity(EndergyEntityTypes.MOVING_MAGNET.get(), level);
         entity.magnet = state;

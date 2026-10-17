@@ -18,10 +18,9 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 public class CreateEndergyClient {
     public CreateEndergyClient(IEventBus modEventBus) {
         EndergyPartialModels.init();
-        // A sliding magnet looks exactly like falling sand does
         modEventBus.addListener((EntityRenderersEvent.RegisterRenderers event) ->
                 event.registerEntityRenderer(EndergyEntityTypes.MOVING_MAGNET.get(), FallingBlockRenderer::new));
-        // Single-pole magnet items show their pole in the inventory: 0.5 positive, 1 negative
+        // Values must match the overrides in models/item/magnet_block.json
         modEventBus.addListener((FMLClientSetupEvent event) -> event.enqueueWork(() ->
                 ItemProperties.register(EndergyBlocks.MAGNET_BLOCK.asItem(), CreateEndergy.asResource("polarity"),
                         (stack, level, entity, seed) -> switch (MagnetBlock.polarityOf(stack)) {

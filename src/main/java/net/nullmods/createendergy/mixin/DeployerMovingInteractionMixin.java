@@ -9,11 +9,10 @@ import net.nullmods.createendergy.InsulatedWrenchItem;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
-/** Switching a deployer's mode on a moving contraption uses {@code item.equals(AllItems.WRENCH.get())}. */
+// Deployer mode switching on contraptions compares to AllItems.WRENCH.get() directly
 @Mixin(DeployerMovingInteraction.class)
 public abstract class DeployerMovingInteractionMixin {
-    @ModifyExpressionValue(method = "handlePlayerInteraction", at = @At(value = "INVOKE",
-            target = "Lcom/tterrag/registrate/util/entry/ItemEntry;get()Ljava/lang/Object;"))
+    @ModifyExpressionValue(method = "handlePlayerInteraction", at = @At(value = "INVOKE", target = "Lcom/tterrag/registrate/util/entry/ItemEntry;get()Ljava/lang/Object;"))
     private Object create_endergy$acceptInsulatedWrench(Object createWrench,
             @Local(argsOnly = true) Player player, @Local(argsOnly = true) InteractionHand hand) {
         return InsulatedWrenchItem.substituteFor(createWrench, player.getItemInHand(hand));

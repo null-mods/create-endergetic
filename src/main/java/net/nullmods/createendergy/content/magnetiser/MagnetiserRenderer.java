@@ -17,17 +17,10 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.nullmods.createendergy.EndergyPartialModels;
 
-/**
- * Draws the moving parts; the casing is the block's static model. This extends
- * SafeBlockEntityRenderer rather than KineticBlockEntityRenderer on purpose: the latter
- * draws nothing while Flywheel is active, which is the default with Create.
- */
+// KineticBlockEntityRenderer draws nothing while Flywheel is active, which is Create's default
 public class MagnetiserRenderer extends SafeBlockEntityRenderer<MagnetiserBlockEntity> {
-    // Rotation axes, in model pixels, measured from the Blockbench model. Both run along X.
     private static final float SHAFT_Y = 9, SHAFT_Z = 8;
     private static final float CIRCLE_Y = 11.2f, CIRCLE_Z = 7.59f;
-    // Conductor hinges, and the swing that brings the two tips together (computed from the tip
-    // positions). The conductors sit along X, so they swing about Z.
     private static final float HINGE_Y = 6, LEFT_HINGE_X = 15.5f, RIGHT_HINGE_X = 0.5f;
     private static final float CONDUCTOR_SWING = (float) Math.toRadians(9.8);
 
@@ -57,7 +50,6 @@ public class MagnetiserRenderer extends SafeBlockEntityRenderer<MagnetiserBlockE
     private static final int BOLT_SEGMENTS = 8;
     private static final float BOLT_JITTER = .22f;
 
-    /** A jagged line from the conductor tips to the target, re-drawn with new kinks every tick so it flickers. */
     private static void renderBolt(MagnetiserBlockEntity be, PoseStack ms, MultiBufferSource buffer) {
         Vec3 end = be.getBoltEnd();
         if (end == null)
@@ -71,14 +63,12 @@ public class MagnetiserRenderer extends SafeBlockEntityRenderer<MagnetiserBlockE
             Vec3 next = start.lerp(end, i / (float) BOLT_SEGMENTS);
             if (i < BOLT_SEGMENTS)
                 next = next.add((random.nextFloat() - .5f) * BOLT_JITTER, 0, (random.nextFloat() - .5f) * BOLT_JITTER);
-            // Wide faint glow in the alloy's teal, then a thin bright core
             segment(vc, pose, prev, next, .07f, 44, 205, 177, 90);
             segment(vc, pose, prev, next, .02f, 210, 255, 248, 230);
             prev = next;
         }
     }
 
-    /** Two crossed ribbons along the segment, each drawn from both sides. */
     private static void segment(VertexConsumer vc, PoseStack.Pose pose, Vec3 a, Vec3 b, float w, int r, int g, int bl, int alpha) {
         ribbon(vc, pose, a, b, w, 0, r, g, bl, alpha);
         ribbon(vc, pose, a, b, 0, w, r, g, bl, alpha);
@@ -95,7 +85,6 @@ public class MagnetiserRenderer extends SafeBlockEntityRenderer<MagnetiserBlockE
             vc.addVertex(pose, quad[i][0], quad[i][1], quad[i][2]).setColor(r, g, bl, alpha);
     }
 
-    /** Draws a part turned by {@code angle} about a line along {@code spin} through the pivot (model pixels). */
     private static void render(PartialModel model, BlockState state, Direction.Axis axis, Direction.Axis spin, float angle,
             float pivotX, float pivotY, float pivotZ, int light, PoseStack ms, VertexConsumer vc) {
         SuperByteBuffer part = CachedBuffers.partial(model, state);

@@ -16,11 +16,22 @@
   "item.create_endergy.endergetic_plate": "Endergetic Plate",
   "item.create_endergy.copper_coil": "Copper Coil",
   "item.create_endergy.endergetic_coil": "Endergetic Coil",
+  "item.create_endergy.insulated_copper_coil": "Insulated Copper Coil",
+  "item.create_endergy.insulated_gold_coil": "Insulated Gold Coil",
+  "item.create_endergy.insulated_endergetic_coil": "Insulated Endergetic Coil",
   "item.create_endergy.gold_coil": "Gold Coil",
   "create_endergy.magnet_block.polarity": "Polarity: %s",
   "create_endergy.magnet_block.polarity.dipole": "Positive and negative",
   "create_endergy.magnet_block.polarity.positive": "Positive only",
   "create_endergy.magnet_block.polarity.negative": "Negative only",
   "block.create_endergy.copper_motor": "Copper Motor",
-  "block.create_endergy.endergetic_motor": "Endergetic Motor"
+  "block.create_endergy.endergetic_motor": "Endergetic Motor",
+  "block.create_endergy.insulator": "Insulator",
+  "create_endergy.wire.start": "Wire attached. Right-click another insulator to connect.",
+  "create_endergy.wire.connected": "Insulators connected.",
+  "create_endergy.wire.cancelled": "Wire removed.",
+  "create_endergy.wire.lost": "The first insulator is gone.",
+  "create_endergy.wire.already": "These insulators are already connected.",
+  "create_endergy.wire.full": "This insulator has no free connections.",
+  "create_endergy.wire.too_far": "Too far: wires reach up to %s blocks."
 }

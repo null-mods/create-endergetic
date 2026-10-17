@@ -26,9 +26,13 @@ public class EndergyCreativeTabs {
                         output.accept(EndergyItems.COPPER_COIL);
                         output.accept(EndergyItems.GOLD_COIL);
                         output.accept(EndergyItems.ENDERGETIC_COIL);
+                        output.accept(EndergyItems.INSULATED_COPPER_COIL);
+                        output.accept(EndergyItems.INSULATED_GOLD_COIL);
+                        output.accept(EndergyItems.INSULATED_ENDERGETIC_COIL);
                         output.accept(EndergyBlocks.MAGNET_BLOCK);
                         output.accept(EndergyBlocks.COPPER_MOTOR);
                         output.accept(EndergyBlocks.ENDERGETIC_MOTOR);
+                        output.accept(EndergyBlocks.INSULATOR);
                         output.accept(EndergyBlocks.ENDERGETIC_ALLOY_BLOCK);
                     })
                     .build());

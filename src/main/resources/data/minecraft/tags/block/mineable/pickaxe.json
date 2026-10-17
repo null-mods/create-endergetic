@@ -6,6 +6,7 @@
     "create_endergy:magnet_block",
     "create_endergy:endergetic_alloy_block",
     "create_endergy:copper_motor",
-    "create_endergy:endergetic_motor"
+    "create_endergy:endergetic_motor",
+    "create_endergy:insulator"
   ]
 }

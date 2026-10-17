@@ -16,11 +16,22 @@
   "item.create_endergy.endergetic_plate": "Chapa Endérgica",
   "item.create_endergy.copper_coil": "Bobina de Cobre",
   "item.create_endergy.endergetic_coil": "Bobina Endérgica",
+  "item.create_endergy.insulated_copper_coil": "Bobina de Cobre Isolada",
+  "item.create_endergy.insulated_gold_coil": "Bobina de Ouro Isolada",
+  "item.create_endergy.insulated_endergetic_coil": "Bobina Endérgica Isolada",
   "item.create_endergy.gold_coil": "Bobina de Ouro",
   "create_endergy.magnet_block.polarity": "Polaridade: %s",
   "create_endergy.magnet_block.polarity.dipole": "Positivo e negativo",
   "create_endergy.magnet_block.polarity.positive": "Só positivo",
   "create_endergy.magnet_block.polarity.negative": "Só negativo",
   "block.create_endergy.copper_motor": "Motor de Cobre",
-  "block.create_endergy.endergetic_motor": "Motor Endérgico"
+  "block.create_endergy.endergetic_motor": "Motor Endérgico",
+  "block.create_endergy.insulator": "Isolador",
+  "create_endergy.wire.start": "Fio preso. Clique com o botão direito em outro isolador para ligar.",
+  "create_endergy.wire.connected": "Isoladores ligados.",
+  "create_endergy.wire.cancelled": "Fio solto.",
+  "create_endergy.wire.lost": "O primeiro isolador não existe mais.",
+  "create_endergy.wire.already": "Esses isoladores já estão ligados.",
+  "create_endergy.wire.full": "Este isolador não tem mais conexões livres.",
+  "create_endergy.wire.too_far": "Longe demais: o fio alcança até %s blocos."
 }

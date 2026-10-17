@@ -14,9 +14,9 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
 repositories {
     mavenCentral()
-    maven { url = 'https://maven.createmod.net' } // Create, Ponder, Flywheel
-    maven { url = 'https://mvn.devos.one/snapshots' } // Registrate
-    maven { url = 'https://maven.blamejared.com' } // JEI
+    maven { url = 'https://maven.createmod.net' }
+    maven { url = 'https://mvn.devos.one/snapshots' }
+    maven { url = 'https://maven.blamejared.com' }
 }
 
 dependencies {

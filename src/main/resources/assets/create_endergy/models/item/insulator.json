@@ -1,0 +1,25 @@
+{
+  "parent": "create_endergy:block/insulator",
+  "display": {
+    "gui": {
+      "rotation": [30, 225, 0],
+      "translation": [0, 1.7, 0],
+      "scale": [0.9375, 0.9375, 0.9375]
+    },
+    "firstperson_righthand": {
+      "rotation": [0, 45, 0],
+      "translation": [0, 1.25, 0],
+      "scale": [0.6, 0.6, 0.6]
+    },
+    "firstperson_lefthand": {
+      "rotation": [0, 225, 0],
+      "translation": [0, 1.25, 0],
+      "scale": [0.6, 0.6, 0.6]
+    },
+    "thirdperson_righthand": {
+      "rotation": [75, 45, 0],
+      "translation": [0, 2.8, 0],
+      "scale": [0.5625, 0.5625, 0.5625]
+    }
+  }
+}

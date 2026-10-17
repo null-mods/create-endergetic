@@ -21,13 +21,11 @@ import net.nullmods.createendergy.content.magnetiser.MagnetisingRecipe;
 
 import java.util.List;
 
-/** Laid out like Create's own pressing category, with the magnetiser in place of the press. */
 public class MagnetisingCategory implements IRecipeCategory<RecipeHolder<MagnetisingRecipe>> {
     public static final RecipeType<RecipeHolder<MagnetisingRecipe>> TYPE =
             RecipeType.createRecipeHolderType(CreateEndergy.asResource("magnetising"));
 
     private static final int WIDTH = 177, HEIGHT = 70;
-    /** The bolt drawn between the machine and the item, in the alloy's palette. */
     private static final int BOLT_GLOW = 0xFF2CCDB1, BOLT_CORE = 0xFF8CF4E2;
 
     private final IDrawable icon;
@@ -83,7 +81,6 @@ public class MagnetisingCategory implements IRecipeCategory<RecipeHolder<Magneti
         AllGuiTextures.JEI_SHADOW.render(graphics, 61, 41);
         AllGuiTextures.JEI_LONG_ARROW.render(graphics, 52, 54);
 
-        // The machine at twice item size, above the shadow
         PoseStack pose = graphics.pose();
         pose.pushPose();
         pose.translate(72, 4, 0);
@@ -91,7 +88,6 @@ public class MagnetisingCategory implements IRecipeCategory<RecipeHolder<Magneti
         graphics.renderItem(EndergyBlocks.MAGNETISER.asStack(), 0, 0);
         pose.popPose();
 
-        // A small zigzag bolt from the conductors down to where the item would be
         int[][] bolt = {{87, 36}, {89, 39}, {86, 42}, {89, 45}};
         for (int[] step : bolt) {
             graphics.fill(step[0] - 1, step[1] - 1, step[0] + 3, step[1] + 4, BOLT_GLOW);

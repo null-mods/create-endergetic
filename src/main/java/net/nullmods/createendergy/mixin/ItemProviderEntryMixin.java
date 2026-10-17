@@ -9,11 +9,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-/**
- * Most of Create asks {@code AllItems.WRENCH.isIn(stack)}, which ends up in {@code is(Item)}.
- * Answering yes there for the insulated wrench covers belts, funnels, crafters, latches,
- * the minecart insta-kill and every other check of that form at once.
- */
+// Most of Create checks its wrench with AllItems.WRENCH.isIn(stack), which lands here
 @Mixin(ItemProviderEntry.class)
 public abstract class ItemProviderEntryMixin {
     @Inject(method = "is", at = @At("HEAD"), cancellable = true)
