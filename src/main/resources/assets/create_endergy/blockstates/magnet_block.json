@@ -1,5 +1,63 @@
 {
   "variants": {
-    "": { "model": "create_endergy:block/magnet_block" }
+    "facing=north,polarity=dipole": {
+      "model": "create_endergy:block/magnet_block"
+    },
+    "facing=north,polarity=positive": {
+      "model": "create_endergy:block/magnet_block_positive"
+    },
+    "facing=north,polarity=negative": {
+      "model": "create_endergy:block/magnet_block_negative"
+    },
+    "facing=south,polarity=dipole": {
+      "model": "create_endergy:block/magnet_block",
+      "y": 180
+    },
+    "facing=south,polarity=positive": {
+      "model": "create_endergy:block/magnet_block_positive"
+    },
+    "facing=south,polarity=negative": {
+      "model": "create_endergy:block/magnet_block_negative"
+    },
+    "facing=east,polarity=dipole": {
+      "model": "create_endergy:block/magnet_block",
+      "y": 90
+    },
+    "facing=east,polarity=positive": {
+      "model": "create_endergy:block/magnet_block_positive"
+    },
+    "facing=east,polarity=negative": {
+      "model": "create_endergy:block/magnet_block_negative"
+    },
+    "facing=west,polarity=dipole": {
+      "model": "create_endergy:block/magnet_block",
+      "y": 270
+    },
+    "facing=west,polarity=positive": {
+      "model": "create_endergy:block/magnet_block_positive"
+    },
+    "facing=west,polarity=negative": {
+      "model": "create_endergy:block/magnet_block_negative"
+    },
+    "facing=up,polarity=dipole": {
+      "model": "create_endergy:block/magnet_block",
+      "x": 270
+    },
+    "facing=up,polarity=positive": {
+      "model": "create_endergy:block/magnet_block_positive"
+    },
+    "facing=up,polarity=negative": {
+      "model": "create_endergy:block/magnet_block_negative"
+    },
+    "facing=down,polarity=dipole": {
+      "model": "create_endergy:block/magnet_block",
+      "x": 90
+    },
+    "facing=down,polarity=positive": {
+      "model": "create_endergy:block/magnet_block_positive"
+    },
+    "facing=down,polarity=negative": {
+      "model": "create_endergy:block/magnet_block_negative"
+    }
   }
 }

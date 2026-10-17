@@ -1,7 +1,6 @@
 {
   "itemGroup.create_endergy": "Create: Endergy",
   "item.create_endergy.endergetic_alloy": "Endergetic Alloy",
-  "item.create_endergy.insulated_endergetic_alloy": "Insulated Endergetic Alloy",
   "item.create_endergy.endergetic_precision_mechanism": "Endergetic Precision Mechanism",
   "item.create_endergy.insulated_wrench": "Insulated Wrench",
   "item.create_endergy.magnet": "Magnet",
@@ -13,5 +12,9 @@
   "block.create_endergy.magnet_block": "Magnet Block",
   "block.create_endergy.endergetic_alloy_block": "Block of Endergetic Alloy",
   "create_endergy.recipe.magnetising": "Magnetising",
-  "enchantment.create_endergy.magnetised": "Magnetised"
+  "enchantment.create_endergy.magnetised": "Magnetised",
+  "create_endergy.magnet_block.polarity": "Polarity: %s",
+  "create_endergy.magnet_block.polarity.dipole": "Positive and negative",
+  "create_endergy.magnet_block.polarity.positive": "Positive only",
+  "create_endergy.magnet_block.polarity.negative": "Negative only"
 }

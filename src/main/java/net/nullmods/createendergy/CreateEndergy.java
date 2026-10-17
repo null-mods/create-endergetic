@@ -33,6 +33,7 @@ public class CreateEndergy {
 
         EndergyCreativeTabs.register(modEventBus);
         EndergyRecipeTypes.register(modEventBus);
+        EndergyEntityTypes.register(modEventBus);
     }
 
     public static ResourceLocation asResource(String path) {

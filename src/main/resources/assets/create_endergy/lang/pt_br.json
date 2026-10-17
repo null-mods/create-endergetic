@@ -1,7 +1,6 @@
 {
   "itemGroup.create_endergy": "Create: Endergy",
   "item.create_endergy.endergetic_alloy": "Liga Endergetica",
-  "item.create_endergy.insulated_endergetic_alloy": "Liga Endergetica Isolada",
   "item.create_endergy.endergetic_precision_mechanism": "Mecanismo de Precisão Endergetico",
   "item.create_endergy.insulated_wrench": "Chave Inglesa Isolada",
   "item.create_endergy.magnet": "Ímã",
@@ -13,5 +12,9 @@
   "block.create_endergy.magnet_block": "Bloco de Ímã",
   "block.create_endergy.endergetic_alloy_block": "Bloco de Liga Endergética",
   "create_endergy.recipe.magnetising": "Magnetização",
-  "enchantment.create_endergy.magnetised": "Magnetizado"
+  "enchantment.create_endergy.magnetised": "Magnetizado",
+  "create_endergy.magnet_block.polarity": "Polaridade: %s",
+  "create_endergy.magnet_block.polarity.dipole": "Positivo e negativo",
+  "create_endergy.magnet_block.polarity.positive": "Só positivo",
+  "create_endergy.magnet_block.polarity.negative": "Só negativo"
 }

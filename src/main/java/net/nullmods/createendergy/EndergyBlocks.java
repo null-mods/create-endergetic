@@ -9,6 +9,7 @@ import com.tterrag.registrate.util.entry.BlockEntry;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.MapColor;
+import net.nullmods.createendergy.content.magnet.MagnetBlock;
 import net.nullmods.createendergy.content.magnetiser.MagnetiserBlock;
 
 public class EndergyBlocks {
@@ -28,8 +29,8 @@ public class EndergyBlocks {
                         .simpleItem()
                         .register();
 
-        public static final BlockEntry<Block> MAGNET_BLOCK = REGISTRATE
-                        .block("magnet_block", Block::new)
+        public static final BlockEntry<MagnetBlock> MAGNET_BLOCK = REGISTRATE
+                        .block("magnet_block", MagnetBlock::new)
                         .initialProperties(() -> Blocks.IRON_BLOCK)
                         .properties(p -> p.mapColor(MapColor.COLOR_PURPLE))
                         .simpleItem()

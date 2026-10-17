@@ -11,11 +11,6 @@ public class EndergyItems {
                         .properties(p -> p.stacksTo(64))
                         .register();
 
-        public static final ItemEntry<Item> INSULATED_ENDERGETIC_ALLOY = REGISTRATE
-                        .item("insulated_endergetic_alloy", Item::new)
-                        .properties(p -> p.stacksTo(64))
-                        .register();
-
         public static final ItemEntry<Item> ENDERGETIC_PRECISION_MECHANISM = REGISTRATE
                         .item("endergetic_precision_mechanism", Item::new)
                         .properties(p -> p.stacksTo(64))
