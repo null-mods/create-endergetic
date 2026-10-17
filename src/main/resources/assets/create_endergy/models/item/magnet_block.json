@@ -1,0 +1,17 @@
+{
+  "parent": "create_endergy:block/magnet_block",
+  "overrides": [
+    {
+      "predicate": {
+        "create_endergy:polarity": 0.5
+      },
+      "model": "create_endergy:block/magnet_block_positive"
+    },
+    {
+      "predicate": {
+        "create_endergy:polarity": 1.0
+      },
+      "model": "create_endergy:block/magnet_block_negative"
+    }
+  ]
+}

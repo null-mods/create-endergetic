@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "type": "neoforge:components",
+      "items": "create_endergy:magnet_block",
+      "components": {
+        "minecraft:block_state": {
+          "polarity": "negative"
+        }
+      }
+    }
+  ],
+  "result": {
+    "id": "create_endergy:magnet_block",
+    "count": 1
+  }
+}

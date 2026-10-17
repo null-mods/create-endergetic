@@ -1,8 +1,20 @@
 {
   "itemGroup.create_endergy": "Create: Endergy",
   "item.create_endergy.endergetic_alloy": "Endergetic Alloy",
-  "item.create_endergy.insulated_endergetic_alloy": "Insulated Endergetic Alloy",
   "item.create_endergy.endergetic_precision_mechanism": "Endergetic Precision Mechanism",
   "item.create_endergy.insulated_wrench": "Insulated Wrench",
-  "block.create_endergy.endergetic_casing": "Endergetic Casing"
+  "item.create_endergy.magnet": "Magnet",
+  "block.create_endergy.endergetic_casing": "Endergetic Casing",
+  "block.create_endergy.magnetiser": "Magnetiser",
+  "block.create_endergy.magnetiser.tooltip.summary": "Charges up with _rotational force_ and strikes the item below it with a bolt of _endergy_.",
+  "block.create_endergy.magnetiser.tooltip.condition1": "When powered",
+  "block.create_endergy.magnetiser.tooltip.behaviour1": "Its rings _spin_ with the shaft. Works on _belts_, _depots_, _basins_ and items on the _ground_.",
+  "block.create_endergy.magnet_block": "Magnet Block",
+  "block.create_endergy.endergetic_alloy_block": "Block of Endergetic Alloy",
+  "create_endergy.recipe.magnetising": "Magnetising",
+  "enchantment.create_endergy.magnetised": "Magnetised",
+  "create_endergy.magnet_block.polarity": "Polarity: %s",
+  "create_endergy.magnet_block.polarity.dipole": "Positive and negative",
+  "create_endergy.magnet_block.polarity.positive": "Positive only",
+  "create_endergy.magnet_block.polarity.negative": "Negative only"
 }

@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
-    "create_endergy:endergetic_casing"
+    "create_endergy:endergetic_casing",
+    "create_endergy:magnetiser",
+    "create_endergy:magnet_block",
+    "create_endergy:endergetic_alloy_block"
   ]
 }

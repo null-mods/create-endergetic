@@ -16,16 +16,17 @@ repositories {
     mavenCentral()
     maven { url = 'https://maven.createmod.net' } // Create, Ponder, Flywheel
     maven { url = 'https://mvn.devos.one/snapshots' } // Registrate
+    maven { url = 'https://maven.blamejared.com' } // JEI
 }
 
 dependencies {
-    // The slim jar has no jar-in-jar libraries, and Create's pom drags in its own
-    // dev-only runtime mods (JEI, FTB, Curios...), hence transitive = false.
     implementation("com.simibubi.create:create-${minecraft_version}:${create_version}:slim") { transitive = false }
     implementation("net.createmod.ponder:ponder-neoforge:${ponder_version}+mc${minecraft_version}")
     compileOnly("dev.engine-room.flywheel:flywheel-neoforge-api-${minecraft_version}:${flywheel_version}")
     runtimeOnly("dev.engine-room.flywheel:flywheel-neoforge-${minecraft_version}:${flywheel_version}")
     implementation("com.tterrag.registrate:Registrate:${registrate_version}")
+    compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}")
+    runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
 }
 
 neoForge {
@@ -58,8 +59,6 @@ neoForge {
     }
 }
 
-// The insulated wrench texture is Create's wrench texture with src/main/overlays/insulated_wrench.png drawn on
-// top. The overlay lives outside resources so it is not shipped as a texture of its own.
 def insulatedWrenchTexture = tasks.register('insulatedWrenchTexture') {
     def overlay = file('src/main/overlays/insulated_wrench.png')
     def outputRoot = layout.buildDirectory.dir('generated/textures')

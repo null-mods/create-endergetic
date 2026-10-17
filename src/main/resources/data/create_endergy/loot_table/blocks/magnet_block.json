@@ -1,0 +1,55 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "create_endergy:magnet_block",
+          "functions": [
+            {
+              "function": "minecraft:copy_state",
+              "block": "create_endergy:magnet_block",
+              "properties": [
+                "polarity"
+              ],
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "create_endergy:magnet_block",
+                  "properties": {
+                    "polarity": "positive"
+                  }
+                }
+              ]
+            },
+            {
+              "function": "minecraft:copy_state",
+              "block": "create_endergy:magnet_block",
+              "properties": [
+                "polarity"
+              ],
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "create_endergy:magnet_block",
+                  "properties": {
+                    "polarity": "negative"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "create_endergy:blocks/magnet_block"
+}

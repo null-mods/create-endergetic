@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "create_endergy:block/endergetic_alloy_block" }
+  }
+}
