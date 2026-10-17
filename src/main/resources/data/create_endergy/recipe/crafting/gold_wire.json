@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "PPP",
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "tag": "c:plates/gold"
+    }
+  },
+  "result": {
+    "id": "create_endergy:gold_wire",
+    "count": 1
+  }
+}

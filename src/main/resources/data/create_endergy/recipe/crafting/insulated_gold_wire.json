@@ -11,11 +11,11 @@
       "item": "minecraft:dried_kelp"
     },
     "C": {
-      "item": "create_endergy:endergetic_coil"
+      "item": "create_endergy:gold_wire"
     }
   },
   "result": {
-    "id": "create_endergy:insulated_endergetic_coil",
+    "id": "create_endergy:insulated_gold_wire",
     "count": 3
   }
 }

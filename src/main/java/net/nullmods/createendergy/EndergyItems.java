@@ -3,7 +3,7 @@ package net.nullmods.createendergy;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import net.minecraft.world.item.Item;
-import net.nullmods.createendergy.content.wire.WireCoilItem;
+import net.nullmods.createendergy.content.wire.WireItem;
 import net.nullmods.createendergy.content.wire.WireType;
 
 public class EndergyItems {
@@ -33,33 +33,33 @@ public class EndergyItems {
                         .properties(p -> p.stacksTo(64))
                         .register();
 
-        public static final ItemEntry<WireCoilItem> COPPER_COIL = REGISTRATE
-                        .item("copper_coil", p -> new WireCoilItem(p, WireType.COPPER))
+        public static final ItemEntry<WireItem> COPPER_WIRE = REGISTRATE
+                        .item("copper_wire", p -> new WireItem(p, WireType.COPPER))
                         .properties(p -> p.stacksTo(64))
                         .register();
 
-        public static final ItemEntry<WireCoilItem> GOLD_COIL = REGISTRATE
-                        .item("gold_coil", p -> new WireCoilItem(p, WireType.GOLD))
+        public static final ItemEntry<WireItem> GOLD_WIRE = REGISTRATE
+                        .item("gold_wire", p -> new WireItem(p, WireType.GOLD))
                         .properties(p -> p.stacksTo(64))
                         .register();
 
-        public static final ItemEntry<WireCoilItem> ENDERGETIC_COIL = REGISTRATE
-                        .item("endergetic_coil", p -> new WireCoilItem(p, WireType.ENDERGETIC))
+        public static final ItemEntry<WireItem> ENDERGETIC_WIRE = REGISTRATE
+                        .item("endergetic_wire", p -> new WireItem(p, WireType.ENDERGETIC))
                         .properties(p -> p.stacksTo(64))
                         .register();
 
-        public static final ItemEntry<WireCoilItem> INSULATED_COPPER_COIL = REGISTRATE
-                        .item("insulated_copper_coil", p -> new WireCoilItem(p, WireType.INSULATED_COPPER))
+        public static final ItemEntry<WireItem> INSULATED_COPPER_WIRE = REGISTRATE
+                        .item("insulated_copper_wire", p -> new WireItem(p, WireType.INSULATED_COPPER))
                         .properties(p -> p.stacksTo(64))
                         .register();
 
-        public static final ItemEntry<WireCoilItem> INSULATED_GOLD_COIL = REGISTRATE
-                        .item("insulated_gold_coil", p -> new WireCoilItem(p, WireType.INSULATED_GOLD))
+        public static final ItemEntry<WireItem> INSULATED_GOLD_WIRE = REGISTRATE
+                        .item("insulated_gold_wire", p -> new WireItem(p, WireType.INSULATED_GOLD))
                         .properties(p -> p.stacksTo(64))
                         .register();
 
-        public static final ItemEntry<WireCoilItem> INSULATED_ENDERGETIC_COIL = REGISTRATE
-                        .item("insulated_endergetic_coil", p -> new WireCoilItem(p, WireType.INSULATED_ENDERGETIC))
+        public static final ItemEntry<WireItem> INSULATED_ENDERGETIC_WIRE = REGISTRATE
+                        .item("insulated_endergetic_wire", p -> new WireItem(p, WireType.INSULATED_ENDERGETIC))
                         .properties(p -> p.stacksTo(64))
                         .register();
 

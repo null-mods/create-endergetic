@@ -18,6 +18,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.nullmods.createendergy.content.EndergyGoggles;
+import net.nullmods.createendergy.content.EndergySource;
 import net.nullmods.createendergy.content.accumulator.AccumulatorBlockEntity;
 
 import java.util.ArrayList;
@@ -52,15 +53,14 @@ public class InsulatorBlockEntity extends BlockEntity implements IHaveGoggleInfo
         return InsulatorBlock.attachPoint(worldPosition, getBlockState(), neck);
     }
 
-    public AccumulatorBlockEntity getSource() {
+    public EndergySource getSource() {
         BlockState state = getBlockState();
         if (!state.hasProperty(InsulatorBlock.FACING))
             return null;
-        BlockPos mount = worldPosition.relative(state.getValue(InsulatorBlock.FACING).getOpposite());
-        if (!(level.getBlockEntity(mount) instanceof AccumulatorBlockEntity part))
-            return null;
-        AccumulatorBlockEntity controller = part.getControllerBE();
-        return controller != null && controller.getVoltage() > 0 ? controller : null;
+        BlockEntity mount = level.getBlockEntity(worldPosition.relative(state.getValue(InsulatorBlock.FACING).getOpposite()));
+        EndergySource source = mount instanceof AccumulatorBlockEntity part ? part.getControllerBE()
+                : mount instanceof EndergySource other ? other : null;
+        return source != null && source.getVoltage() > 0 ? source : null;
     }
 
     @Override
@@ -86,7 +86,7 @@ public class InsulatorBlockEntity extends BlockEntity implements IHaveGoggleInfo
                 end.removeLink(worldPosition);
             Containers.dropItemStack(level, worldPosition.getX() + .5, worldPosition.getY() + .5,
                     worldPosition.getZ() + .5,
-                    new ItemStack(link.type().coil()));
+                    new ItemStack(link.type().item()));
         }
         links.clear();
     }

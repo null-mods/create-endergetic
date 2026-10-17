@@ -1,6 +1,3 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "create_endergy:item/copper_coil"
-  }
+  "parent": "create_endergy:block/copper_coil"
 }

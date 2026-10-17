@@ -16,11 +16,12 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.nullmods.createendergy.content.EndergyGoggles;
+import net.nullmods.createendergy.content.EndergySource;
 
 import java.util.List;
 import java.util.Objects;
 
-public class AccumulatorBlockEntity extends SmartBlockEntity implements IMultiBlockEntityContainer, IHaveGoggleInformation {
+public class AccumulatorBlockEntity extends SmartBlockEntity implements IMultiBlockEntityContainer, IHaveGoggleInformation, EndergySource {
     private static final int MAX_WIDTH = 3;
     private static final int MAX_HEIGHT = 32;
     public static final long CAPACITY_PER_BLOCK = 100_000;
@@ -62,8 +63,14 @@ public class AccumulatorBlockEntity extends SmartBlockEntity implements IMultiBl
             updateConnectivity();
     }
 
+    @Override
     public int getVoltage() {
         return 0;
+    }
+
+    @Override
+    public BlockPos getSourcePos() {
+        return getController();
     }
 
     public boolean isInfinite() {

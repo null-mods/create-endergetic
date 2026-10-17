@@ -13,12 +13,12 @@ import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 
-public class WireCoilItem extends Item {
+public class WireItem extends Item {
     private static final String START = "WireStart";
 
     private final WireType type;
 
-    public WireCoilItem(Properties properties, WireType type) {
+    public WireItem(Properties properties, WireType type) {
         super(properties);
         this.type = type;
     }

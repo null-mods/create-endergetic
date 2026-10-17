@@ -31,6 +31,19 @@ public final class EndergyGoggles {
         energy(tooltip, "gui.goggles.capacity", lang().translate("gui.goggles.infinite"));
     }
 
+    public static void generator(List<Component> tooltip, int power, int active, int rotor, int coverage, int maxSpeed) {
+        line(tooltip, "gui.goggles.power", lang().translate("generic.unit.endergy_watts", power), ChatFormatting.AQUA);
+        line(tooltip, "gui.goggles.rotor", lang().translate("gui.goggles.rotor_blocks", active, rotor),
+                ChatFormatting.WHITE);
+        line(tooltip, "gui.goggles.coverage", lang().text(coverage + "%"), ChatFormatting.WHITE);
+        line(tooltip, "gui.goggles.max_speed", lang().translate("generic.unit.rpm", maxSpeed), ChatFormatting.WHITE);
+    }
+
+    private static void line(List<Component> tooltip, String label, LangBuilder value, ChatFormatting colour) {
+        lang().translate(label).style(ChatFormatting.GRAY).forGoggles(tooltip);
+        value.style(colour).forGoggles(tooltip, 1);
+    }
+
     private static void energy(List<Component> tooltip, String label, LangBuilder value) {
         lang().translate(label).style(ChatFormatting.GRAY).forGoggles(tooltip);
         value.style(ChatFormatting.GOLD).forGoggles(tooltip, 1);

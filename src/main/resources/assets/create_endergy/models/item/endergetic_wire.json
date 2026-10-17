@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "create_endergy:item/insulated_endergetic_coil"
+    "layer0": "create_endergy:item/endergetic_wire"
   }
 }

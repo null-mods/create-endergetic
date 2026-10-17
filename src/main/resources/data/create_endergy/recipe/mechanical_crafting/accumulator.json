@@ -7,7 +7,7 @@
       "item": "create_endergy:endergetic_casing"
     },
     "B": {
-      "item": "create_endergy:endergetic_coil"
+      "item": "create_endergy:copper_coil"
     },
     "M": {
       "item": "create_endergy:endergetic_precision_mechanism"

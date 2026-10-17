@@ -2,7 +2,7 @@ package net.nullmods.createendergy.content.wire;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
-import net.nullmods.createendergy.content.accumulator.AccumulatorBlockEntity;
+import net.nullmods.createendergy.content.EndergySource;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -26,8 +26,8 @@ public final class EndergyNetwork {
             BlockPos pos = frontier.poll();
             if (!(level.getBlockEntity(pos) instanceof InsulatorBlockEntity insulator))
                 continue;
-            AccumulatorBlockEntity source = insulator.getSource();
-            if (source != null && sources.add(source.getController()))
+            EndergySource source = insulator.getSource();
+            if (source != null && sources.add(source.getSourcePos()))
                 voltage += source.getVoltage();
             for (InsulatorBlockEntity.Link link : insulator.getLinks())
                 if (!link.outgoing() && visited.add(link.other()))

@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.MapColor;
 import net.nullmods.createendergy.content.accumulator.AccumulatorBlock;
 import net.nullmods.createendergy.content.accumulator.AccumulatorModel;
+import net.nullmods.createendergy.content.generator.GeneratorBearingBlock;
 import net.nullmods.createendergy.content.magnet.MagnetBlock;
 import net.nullmods.createendergy.content.motor.EndergyMotorBlock;
 import net.nullmods.createendergy.content.wire.InsulatorBlock;
@@ -91,6 +92,21 @@ public class EndergyBlocks {
                         .item()
                         .properties(p -> p.rarity(Rarity.EPIC))
                         .build()
+                        .register();
+
+        public static final BlockEntry<Block> COPPER_COIL = REGISTRATE
+                        .block("copper_coil", Block::new)
+                        .initialProperties(() -> Blocks.COPPER_BLOCK)
+                        .properties(p -> p.noOcclusion().mapColor(MapColor.COLOR_ORANGE))
+                        .simpleItem()
+                        .register();
+
+        public static final BlockEntry<GeneratorBearingBlock> GENERATOR_BEARING = REGISTRATE
+                        .block("generator_bearing", GeneratorBearingBlock::new)
+                        .initialProperties(SharedProperties::stone)
+                        .properties(p -> p.noOcclusion().mapColor(MapColor.COLOR_CYAN))
+                        .onRegister(block -> BlockStressValues.IMPACTS.register(block, () -> 4.0))
+                        .simpleItem()
                         .register();
 
         public static void register() {

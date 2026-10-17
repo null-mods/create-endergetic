@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "tag": "minecraft:wooden_slabs"
+    },
+    "C": {
+      "item": "create_endergy:endergetic_casing"
+    },
+    "W": {
+      "item": "create_endergy:copper_wire"
+    },
+    "I": {
+      "item": "create:shaft"
+    }
+  },
+  "pattern": [
+    " B ",
+    "WCW",
+    " I "
+  ],
+  "result": {
+    "count": 1,
+    "id": "create_endergy:generator_bearing"
+  }
+}

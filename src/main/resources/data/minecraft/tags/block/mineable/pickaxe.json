@@ -9,6 +9,8 @@
     "create_endergy:endergetic_motor",
     "create_endergy:insulator",
     "create_endergy:accumulator",
-    "create_endergy:creative_accumulator"
+    "create_endergy:creative_accumulator",
+    "create_endergy:generator_bearing",
+    "create_endergy:copper_coil"
   ]
 }

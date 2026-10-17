@@ -7,11 +7,11 @@
   ],
   "key": {
     "P": {
-      "tag": "c:plates/gold"
+      "tag": "c:plates/copper"
     }
   },
   "result": {
-    "id": "create_endergy:gold_coil",
+    "id": "create_endergy:copper_wire",
     "count": 1
   }
 }

@@ -23,18 +23,20 @@ public class EndergyCreativeTabs {
                         output.accept(EndergyBlocks.MAGNETISER);
                         output.accept(EndergyItems.MAGNET);
                         output.accept(EndergyItems.ENDERGETIC_PLATE);
-                        output.accept(EndergyItems.COPPER_COIL);
-                        output.accept(EndergyItems.GOLD_COIL);
-                        output.accept(EndergyItems.ENDERGETIC_COIL);
-                        output.accept(EndergyItems.INSULATED_COPPER_COIL);
-                        output.accept(EndergyItems.INSULATED_GOLD_COIL);
-                        output.accept(EndergyItems.INSULATED_ENDERGETIC_COIL);
+                        output.accept(EndergyItems.COPPER_WIRE);
+                        output.accept(EndergyItems.GOLD_WIRE);
+                        output.accept(EndergyItems.ENDERGETIC_WIRE);
+                        output.accept(EndergyItems.INSULATED_COPPER_WIRE);
+                        output.accept(EndergyItems.INSULATED_GOLD_WIRE);
+                        output.accept(EndergyItems.INSULATED_ENDERGETIC_WIRE);
                         output.accept(EndergyBlocks.MAGNET_BLOCK);
                         output.accept(EndergyBlocks.COPPER_MOTOR);
                         output.accept(EndergyBlocks.ENDERGETIC_MOTOR);
                         output.accept(EndergyBlocks.INSULATOR);
                         output.accept(EndergyBlocks.ACCUMULATOR);
                         output.accept(EndergyBlocks.CREATIVE_ACCUMULATOR);
+                        output.accept(EndergyBlocks.GENERATOR_BEARING);
+                        output.accept(EndergyBlocks.COPPER_COIL);
                         output.accept(EndergyBlocks.ENDERGETIC_ALLOY_BLOCK);
                     })
                     .build());
